@@ -1,8 +1,37 @@
 [gd_scene format=3 uid="uid://b5iy5nyq2k3c4"]
 
 [ext_resource type="Script" uid="uid://7hcs8sdhhhr2" path="res://scenes/zombie.gd" id="1_1vlb3"]
+[ext_resource type="Texture2D" uid="uid://b4hx5lqq2f1gv" path="res://assets/sprites/zombie/Walk.png" id="2_httt1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftooa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xepks"]
+atlas = ExtResource("2_httt1")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gx57"]
+atlas = ExtResource("2_httt1")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycv6i"]
+atlas = ExtResource("2_httt1")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjjxt"]
+atlas = ExtResource("2_httt1")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pfmu"]
+atlas = ExtResource("2_httt1")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fthk"]
+atlas = ExtResource("2_httt1")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aetfh"]
+atlas = ExtResource("2_httt1")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujrmm"]
 animations = [{
@@ -21,18 +50,43 @@ animations = [{
 "name": &"static",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xepks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gx57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycv6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjjxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pfmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fthk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aetfh")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
 [node name="Zombie" type="CharacterBody2D" unique_id=1397716047]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_1vlb3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803769530]
 shape = SubResource("CircleShape2D_ftooa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2052151495]
+texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ujrmm")
 animation = &"walk"

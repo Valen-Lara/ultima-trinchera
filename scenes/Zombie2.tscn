@@ -1,42 +1,40 @@
-[gd_scene format=3 uid="uid://ytaxld5kqa8e"]
+[gd_scene format=3 uid="uid://v6qoki1hmghl"]
 
-[ext_resource type="PackedScene" uid="uid://d0hfaqfj2lpgu" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://besdy6dbqu7ew" path="res://assets/sprites/piso_bosque.png" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://b5iy5nyq2k3c4" path="res://scenes/zombie.tscn" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://dya5lb4oyci2o" path="res://assets/sprites/zombie/Walk1.png" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://7hcs8sdhhhr2" path="res://scenes/zombie.gd" id="1_d0nd3"]
+[ext_resource type="Texture2D" uid="uid://dya5lb4oyci2o" path="res://assets/sprites/zombie/Walk1.png" id="3_lf1f3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbgi4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(480, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = ExtResource("4_jyhfs")
+atlas = ExtResource("3_lf1f3")
 region = Rect2(672, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
@@ -71,37 +69,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Main" type="Node2D" unique_id=324663083]
-
-[node name="Piso" type="Sprite2D" parent="." unique_id=1447626637]
-z_index = -10
-texture_repeat = 2
-position = Vector2(-5, 5)
-texture = ExtResource("2_0wfyh")
-region_enabled = true
-region_rect = Rect2(-2000, -2000, 4000, 4000)
-
-[node name="Zombie" parent="." unique_id=1397716047 instance=ExtResource("3_sugp2")]
+[node name="Zombie2" type="CharacterBody2D" unique_id=1397716047 groups=["player"]]
 position = Vector2(500, 0)
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("1_d0nd3")
 
-[node name="Player" parent="." unique_id=724572629 instance=ExtResource("1_o5qli")]
-collision_mask = 0
-
-[node name="Zombie2" parent="." unique_id=73750710 instance=ExtResource("3_sugp2")]
-position = Vector2(500, 0)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Zombie2" unique_id=1901838408]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=752009835]
 shape = SubResource("CircleShape2D_tbgi4")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Zombie2" unique_id=177907940]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1001561770]
 texture_filter = 1
 position = Vector2(150, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_a8y0u")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.28841805
+frame_progress = 0.094415784
