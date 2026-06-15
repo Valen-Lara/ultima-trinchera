@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b5iy5nyq2k3c4"]
+
+[ext_resource type="Script" uid="uid://7hcs8sdhhhr2" path="res://scenes/zombie.gd" id="1_1vlb3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftooa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujrmm"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1397716047]
+script = ExtResource("1_1vlb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803769530]
+shape = SubResource("CircleShape2D_ftooa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2052151495]
+sprite_frames = SubResource("SpriteFrames_ujrmm")
+animation = &"walk"

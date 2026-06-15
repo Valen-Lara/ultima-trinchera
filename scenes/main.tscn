@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ytaxld5kqa8e"]
+
+[ext_resource type="PackedScene" uid="uid://d0hfaqfj2lpgu" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://besdy6dbqu7ew" path="res://assets/sprites/piso_bosque.png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b5iy5nyq2k3c4" path="res://scenes/zombie.tscn" id="3_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=324663083]
+
+[node name="Piso" type="Sprite2D" parent="." unique_id=1447626637]
+z_index = -10
+texture_repeat = 2
+position = Vector2(-5, 5)
+texture = ExtResource("2_0wfyh")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 4000, 4000)
+
+[node name="Zombie" parent="." unique_id=1397716047 instance=ExtResource("3_sugp2")]
+position = Vector2(500, 0)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Player" parent="." unique_id=724572629 instance=ExtResource("1_o5qli")]
+collision_mask = 0
